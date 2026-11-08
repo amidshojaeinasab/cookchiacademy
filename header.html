@@ -1,0 +1,103 @@
+<!-- شروع بنر تمام‌عرض دعوت به اینستاگرام -->
+<div class="insta-invite-banner-full">
+  <a href="https://instagram.com/cookchi.ir" target="_blank" rel="noopener noreferrer" class="insta-banner-link">
+    <div class="insta-content">
+      <!-- آیکون SVG سبک و استاندارد اینستاگرام -->
+      <svg class="insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      <span class="insta-text">برای دیدن نمونه کارها و جدیدنرین آموزش ها، ما را در اینستاگرام دنبال کنید</span>
+      <span class="insta-btn">مشاهده پیج</span>
+    </div>
+  </a>
+</div>
+
+<style>
+/* خروج اجباری از کانتینر و پوشش ۱۰۰٪ عرض صفحه */
+.insta-invite-banner-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  direction: rtl;
+  font-family: inherit;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.insta-banner-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 16px;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  /* پس‌زمینه گرادیان متحرک اینستاگرام */
+  background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045);
+  background-size: 200% 200%;
+  animation: instaGradient 6s ease infinite;
+  box-sizing: border-box;
+}
+
+.insta-banner-link:hover {
+  opacity: 0.95;
+}
+
+.insta-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.insta-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.insta-btn {
+  background-color: #ffffff;
+  color: #e1306c;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.insta-banner-link:hover .insta-btn {
+  transform: scale(1.05);
+}
+
+@keyframes instaGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ریسپانسیو برای نمایشگرهای کوچک */
+@media (max-width: 600px) {
+  .insta-banner-link {
+    padding: 8px 12px;
+  }
+  .insta-text {
+    font-size: 12px;
+    text-align: center;
+  }
+  .insta-btn {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
+</style>
+<!-- پایان بنر -->

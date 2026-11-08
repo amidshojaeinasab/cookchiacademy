@@ -1,0 +1,472 @@
+<style>
+  /* =====================================
+   Cookchi Footer - Main Styles
+===================================== */
+
+  .ck-footer-wrapper {
+    --surface-cream: #fff9f2;
+    --surface-peach-subtle: #fff0e3;
+    --secondary-container: #feab7c;
+    --action-brown: #f59e0b;
+    --text-primary: #3d3028;
+    --text-muted: #75665d;
+    --border-subtle: #ead8cd;
+    --transition: all 0.3s ease;
+
+    font-family: inherit;
+    direction: rtl;
+    line-height: 1.7;
+    width: 100%;
+    display: block;
+  }
+
+  .ck-footer-wrapper *,
+  .ck-footer-wrapper *::before,
+  .ck-footer-wrapper *::after {
+    box-sizing: border-box;
+  }
+
+  .ck-footer-wrapper a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .ck-footer-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ck-footer-wrapper p,
+  .ck-footer-wrapper h3 {
+    margin: 0;
+  }
+
+  /* =====================================
+   Typography
+===================================== */
+
+  .ck-footer-wrapper .ck-h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .ck-footer-wrapper .ck-label-lg {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+  }
+
+  .ck-footer-wrapper .ck-body-sm {
+    font-size: 0.875rem;
+  }
+
+  .ck-footer-wrapper .ck-text-muted {
+    color: var(--text-muted);
+  }
+
+  .ck-footer-wrapper .ck-text-brown {
+    color: var(--action-brown);
+  }
+
+  /* =====================================
+   Layout
+===================================== */
+
+  .ck-footer-wrapper .ck-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    width: 100%;
+  }
+
+  .ck-footer-wrapper .ck-flex {
+    display: flex;
+  }
+
+  .ck-footer-wrapper .ck-flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ck-footer-wrapper .ck-items-center {
+    align-items: center;
+  }
+
+  .ck-footer-wrapper .ck-justify-between {
+    justify-content: space-between;
+  }
+
+  .ck-footer-wrapper .ck-gap-2 {
+    gap: 0.5rem;
+  }
+
+  .ck-footer-wrapper .ck-gap-3 {
+    gap: 0.75rem;
+  }
+
+  .ck-footer-wrapper .ck-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .ck-footer-wrapper .ck-grid-1 {
+    grid-template-columns: 1fr;
+  }
+
+  /* =====================================
+   Footer
+===================================== */
+
+  .ck-footer-wrapper .ck-footer {
+    background: var(--surface-cream);
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 -4px 24px rgba(61, 48, 40, 0.04);
+  }
+
+  /* =====================================
+   Social Buttons
+===================================== */
+
+  .ck-footer-wrapper .ck-social-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    border-radius: 50%;
+    background: var(--surface-peach-subtle);
+    color: var(--action-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  .ck-footer-wrapper .ck-social-btn:hover {
+    background: var(--secondary-container);
+    color: #fff;
+  }
+
+  /* =====================================
+   Footer Links
+===================================== */
+
+  .ck-footer-wrapper .ck-footer-link {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    transition: var(--transition);
+    display: inline-block;
+  }
+
+  .ck-footer-wrapper .ck-footer-link:hover {
+    color: var(--action-brown);
+    transform: translateX(-3px);
+  }
+
+  .ck-footer-wrapper .ck-footer li {
+    margin-bottom: 0.65rem;
+  }
+
+  /* =====================================
+   Contact Section
+===================================== */
+
+  .ck-footer-wrapper .ck-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+
+  .ck-footer-wrapper .ck-contact-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    color: var(--action-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ck-footer-wrapper .ck-contact-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+  }
+
+  .ck-footer-wrapper .ck-contact-title {
+    display: block;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .ck-footer-wrapper .ck-support-contact {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+
+  .ck-footer-wrapper .ck-support-contact svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    stroke: var(--action-brown);
+    fill: none;
+  }
+
+  .ck-footer-wrapper .ck-support-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ck-footer-wrapper .ck-support-title {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .ck-footer-wrapper .ck-support-phone {
+    display: inline-block;
+    color: var(--text-muted) !important;
+    direction: ltr;
+    unicode-bidi: embed;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .ck-footer-wrapper .ck-support-phone:hover {
+    color: var(--action-brown) !important;
+  }
+
+  /* =====================================
+   Bottom Footer
+===================================== */
+
+  .ck-footer-wrapper .ck-footer-bottom {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* =====================================
+   Responsive
+===================================== */
+
+  @media (min-width: 768px) {
+    .ck-footer-wrapper .ck-md-grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ck-footer-wrapper .ck-container {
+      padding: 0 3rem;
+    }
+
+    .ck-footer-wrapper .ck-lg-grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .ck-footer-wrapper .ck-footer {
+      padding-top: 2.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .ck-footer-wrapper .ck-footer-main {
+      margin-bottom: 2rem !important;
+    }
+
+    .ck-footer-wrapper .ck-footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<!-- =====================================
+     Footer HTML
+===================================== -->
+
+<div class="ck-footer-wrapper">
+  <footer class="ck-footer">
+    <div class="ck-container">
+      <div
+        class="ck-grid ck-grid-1 ck-md-grid-2 ck-lg-grid-4 ck-footer-main"
+        style="margin-bottom: 3.5rem"
+      >
+        <!-- Column 1: About -->
+
+        <div class="ck-flex-col ck-gap-3">
+          <span class="ck-h3 ck-text-brown"> آکادمی کوکچی </span>
+
+          <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+            آکادمی تخصصی کوکچی مرجع حرفه‌ای آموزش دکور کوکی‌های آیسینگ، پخت
+            کیک‌های مدرن و سفارش محصولات قنادی دست‌ساز و سفارشی. تلفیقی از ظرافت
+            هنری و بالاترین کیفیت مواد اولیه برای خلق طعم‌های خاطره‌انگیز در
+            کرمان و تهران.
+          </p>
+
+          <div
+            class="ck-flex ck-items-center ck-gap-3"
+            style="margin-top: 0.5rem"
+          >
+            <a class="ck-social-btn" href="https://instagram.com/cookchi.ir" aria-label="اینستاگرام">
+              <span class="material-symbols-outlined" style="font-size: 18px">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-instagram"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+
+        <div class="ck-flex-col ck-gap-3">
+          <h3 class="ck-label-lg">دسترسی سریع</h3>
+
+          <ul>
+            <li>
+              <a class="ck-footer-link" href="https://cookchiacademy.ir/"> صفحه اصلی </a>
+            </li>
+
+            <li>
+              <a class="ck-footer-link" href="#"> سفارش کیک و کوکی کرمان </a>
+            </li>
+
+            <li>
+              <a class="ck-footer-link" href="#"> سفارش کوکی تهران </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Courses & Products -->
+
+        <div class="ck-flex-col ck-gap-3">
+          <h3 class="ck-label-lg">دوره‌ها </h3>
+
+          <ul>
+            <li>
+              <a class="ck-footer-link" href="https://cookchiacademy.ir/product/cookie-icing-course/">  دوره تخصصی رویال آیسینگ </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+
+        <div class="ck-flex-col ck-gap-3">
+          <h3 class="ck-label-lg">نشانی شعب و تماس</h3>
+
+          <div class="ck-flex-col ck-gap-3 ck-body-sm ck-text-muted">
+            <!-- Kerman Address -->
+
+            <div class="ck-contact-item">
+              <span class="ck-contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 22s8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 8 12 8 12z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
+
+              <div>
+                <p class="ck-contact-title">شعبه کرمان:</p>
+
+                <p>جهاد، انتهای کوچه 29</p>
+              </div>
+            </div>
+
+            <!-- Tehran Orders -->
+
+            <div class="ck-contact-item">
+              <span class="ck-contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M3 7h13v11H3zM16 10h3l3 4v4h-6z" />
+                  <circle cx="7.5" cy="19" r="2" />
+                  <circle cx="18.5" cy="19" r="2" />
+                </svg>
+              </span>
+
+              <div>
+                <p class="ck-contact-title">شعبه تهران:</p>
+
+                <p>پاسداران، میدان هروی</p>
+              </div>
+            </div>
+
+            <!-- Support Phone -->
+
+            <div class="ck-support-contact">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2
+                                    19.79 19.79 0 0 1-8.63-3.07
+                                    19.5 19.5 0 0 1-6-6
+                                    19.79 19.79 0 0 1-3.07-8.67
+                                    A2 2 0 0 1 4.11 2h3
+                                    a2 2 0 0 1 2 1.72
+                                    c.12.96.36 1.9.72 2.8
+                                    a2 2 0 0 1-.45 2.11L8.1 9.91
+                                    a16 16 0 0 0 6 6l1.27-1.27
+                                    a2 2 0 0 1 2.11-.45
+                                    c.9.36 1.84.6 2.8.72
+                                    A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+
+              <div class="ck-support-info">
+                <span class="ck-support-title"> پشتیبانی و سفارشات: </span>
+
+                <a href="tel:09120000000" class="ck-support-phone">
+                  09336210608
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+
+      <div class="ck-footer-bottom">
+        <span class="ck-body-sm ck-text-muted">
+          © تمامی حقوق مادی و معنوی برای آکادمی کوکچی محفوظ است.
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>

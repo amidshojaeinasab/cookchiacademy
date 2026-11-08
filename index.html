@@ -1,0 +1,1894 @@
+<!doctype html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <!-- لینک‌های استاندارد فونت و آیکون (غیر از این هیچ CDN دیگری استفاده نشده است) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================================
+   متغیرهای رنگی و تنظیمات پایه
+========================================= */
+      :root {
+        --surface: #fef8f1;
+        --surface-cream: #fff9f2;
+        --surface-peach-subtle: #fff0e3;
+        --surface-peach-hero: #f3b88c;
+        --surface-card: #ffffff;
+        --surface-container-low: #f9f3ec;
+        --surface-container: #f3ede6;
+        --primary: #f59e0b;
+        --primary-container: #f59e0b;
+        --primary-fixed: #ffddb8;
+        --secondary: #f59e0b;
+        --secondary-container: #feab7c;
+        --action-brown: #f59e0b;
+        --action-amber: #f59e0b;
+        --text-primary: #f59e0b;
+        --text-muted: #75665d;
+        --on-surface: #1d1b17;
+        --on-surface-variant: #534434;
+        --on-primary: #ffffff;
+        --on-secondary: #ffffff;
+        --border-subtle: #ead8cd;
+        --outline-variant: #d8c3ad;
+        --transition: all 0.3s ease;
+      }
+
+      /* ایزوله کردن استایل‌ها برای جلوگیری از تداخل با المنتور */
+      .ck-cookchi-academy {
+        font-family: "Vazirmatn", "Plus Jakarta Sans", sans-serif;
+        background-color: var(--surface);
+        color: var(--on-surface);
+        direction: rtl;
+        line-height: 1.6;
+      }
+
+      .ck-cookchi-academy * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .ck-cookchi-academy a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .ck-cookchi-academy img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .ck-cookchi-academy ul {
+        list-style: none;
+      }
+      .ck-cookchi-academy button,
+      .ck-cookchi-academy input,
+      .ck-cookchi-academy select {
+        font-family: inherit;
+      }
+
+      /* =========================================
+   تایپوگرافی
+========================================= */
+      .ck-h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+      }
+      .ck-h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.4;
+      }
+      .ck-h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .ck-h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      @media (min-width: 1024px) {
+        .ck-h1 {
+          font-size: 3rem;
+        }
+      }
+
+      .ck-body-lg {
+        font-size: 1.125rem;
+      }
+      .ck-body-md {
+        font-size: 1rem;
+      }
+      .ck-body-sm {
+        font-size: 0.875rem;
+      }
+      .ck-label-lg {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .ck-label-md {
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+      .ck-label-sm {
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .ck-text-muted {
+        color: var(--text-muted);
+      }
+      .ck-text-brown {
+        color: var(--action-brown);
+      }
+
+      /* =========================================
+   گریدها و لایوت‌های عمومی
+========================================= */
+      .ck-container {
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        width: 100%;
+      }
+      @media (min-width: 1024px) {
+        .ck-container {
+          padding: 0 3rem;
+        }
+      }
+
+      .ck-flex {
+        display: flex;
+      }
+      .ck-flex-col {
+        display: flex;
+        flex-direction: column;
+      }
+      .ck-items-center {
+        align-items: center;
+      }
+      .ck-items-end {
+        align-items: flex-end;
+      }
+      .ck-justify-between {
+        justify-content: space-between;
+      }
+      .ck-justify-center {
+        justify-content: center;
+      }
+      .ck-gap-2 {
+        gap: 0.5rem;
+      }
+      .ck-gap-3 {
+        gap: 0.75rem;
+      }
+      .ck-gap-4 {
+        gap: 1rem;
+      }
+      .ck-gap-6 {
+        gap: 1.5rem;
+      }
+
+      .ck-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .ck-grid-1 {
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 640px) {
+        .ck-sm-grid-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ck-sm-grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (min-width: 768px) {
+        .ck-md-grid-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ck-md-grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .ck-lg-grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .ck-lg-grid-4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .ck-lg-grid-5 {
+          grid-template-columns: repeat(5, 1fr);
+        }
+        .ck-lg-grid-12 {
+          grid-template-columns: repeat(12, 1fr);
+        }
+      }
+
+      .ck-col-span-7 {
+        grid-column: span 7 / span 7;
+      }
+      .ck-col-span-5 {
+        grid-column: span 5 / span 5;
+      }
+
+      /* =========================================
+   دکمه‌ها
+========================================= */
+      .ck-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition);
+      }
+      .ck-btn-primary {
+        background-color: var(--action-brown);
+        color: var(--on-secondary);
+        box-shadow: 0 4px 14px rgba(138, 75, 36, 0.25);
+      }
+      .ck-btn-primary:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+      }
+      .ck-btn-secondary {
+        background-color: var(--surface-card);
+        color: var(--action-brown);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+      .ck-btn-secondary:hover {
+        background-color: var(--surface-peach-subtle);
+      }
+      .ck-btn-sm {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      /* =========================================
+   بخش هدر
+========================================= */
+      .ck-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        height: 5rem;
+        background: rgba(255, 249, 242, 0.9);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 4px 20px -4px rgba(61, 48, 40, 0.06);
+        display: flex;
+        align-items: center;
+      }
+      .ck-nav {
+        display: none;
+      }
+      @media (min-width: 1280px) {
+        .ck-nav {
+          display: flex;
+          gap: 0.375rem;
+        }
+      }
+      .ck-nav-link {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.75rem;
+        color: var(--on-surface-variant);
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+      .ck-nav-link:hover,
+      .ck-nav-link.active {
+        background-color: var(--surface-peach-subtle);
+        color: var(--secondary);
+      }
+      .ck-header-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--on-primary);
+      }
+
+      /* =========================================
+   بخش اصلی و هیرو
+========================================= */
+      .ck-main {
+        padding-top: 5rem;
+        min-height: calc(100vh - 5rem);
+      }
+
+      .ck-breadcrumb {
+        background-color: var(--surface-container-low);
+        padding: 0.375rem 0;
+        color: var(--on-surface-variant);
+      }
+      .ck-breadcrumb-link:hover {
+        color: var(--action-brown);
+      }
+
+      .ck-hero {
+        position: relative;
+        background: linear-gradient(
+          to bottom,
+          var(--surface),
+          var(--surface-cream),
+          var(--surface-peach-subtle)
+        );
+        padding: 2rem 0;
+        overflow: hidden;
+      }
+      @media (min-width: 1024px) {
+        .ck-hero {
+          padding: 3.5rem 0;
+        }
+      }
+      .ck-hero-glow-1 {
+        position: absolute;
+        top: -6rem;
+        right: 2.5rem;
+        width: 24rem;
+        height: 24rem;
+        border-radius: 50%;
+        background-color: rgba(243, 184, 140, 0.2);
+        filter: blur(48px);
+        pointer-events: none;
+      }
+      .ck-hero-glow-2 {
+        position: absolute;
+        bottom: 0;
+        left: 3rem;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        background-color: rgba(255, 221, 184, 0.3);
+        filter: blur(40px);
+        pointer-events: none;
+      }
+      .ck-hero-img-wrapper {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background-color: var(--surface-card);
+        max-width: 28rem;
+        margin: 0 auto;
+      }
+      @media (min-width: 1024px) {
+        .ck-hero-img-wrapper {
+          max-width: none;
+        }
+      }
+      .ck-hero-img {
+        width: 100%;
+        height: 24rem;
+        object-fit: cover;
+      }
+      @media (min-width: 1024px) {
+        .ck-hero-img {
+          height: 28.75rem;
+        }
+      }
+      .ck-floating-card {
+        position: absolute;
+        bottom: -1.5rem;
+        right: -1.5rem;
+        background: var(--surface-card);
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        max-width: 20rem;
+        z-index: 10;
+      }
+
+      .ck-trust-card {
+        background: var(--surface-card);
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+      }
+
+      /* =========================================
+   بخش دسته‌بندی‌ها و کارت‌ها
+========================================= */
+      .ck-section {
+        padding: 3.5rem 0;
+      }
+      .ck-bg-surface-cream {
+        background-color: var(--surface-cream);
+      }
+
+      .ck-card {
+        background: var(--surface-card);
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition);
+      }
+      .ck-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+      }
+      .ck-card-img-box {
+        height: 13rem;
+        overflow: hidden;
+      }
+      .ck-card-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .ck-card:hover .ck-card-img-box img {
+        transform: scale(1.05);
+      }
+      .ck-card-body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      /* =========================================
+   گالری
+========================================= */
+      .ck-gallery-item {
+        position: relative;
+        height: 20rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      .ck-gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .ck-gallery-item:hover img {
+        transform: scale(1.1);
+      }
+      .ck-gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(61, 48, 40, 0.8), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: var(--on-primary);
+      }
+      .ck-gallery-item:hover .ck-gallery-overlay {
+        opacity: 1;
+      }
+
+      /* =========================================
+   ویژگی‌ها، مناسبت‌ها و نظرات
+========================================= */
+      .ck-feature-box {
+        background: var(--surface-card);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .ck-icon-box {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.75rem;
+        background-color: var(--surface-peach-subtle);
+        color: var(--action-brown);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ck-icon-circle {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: var(--surface-peach-subtle);
+        color: var(--action-brown);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ck-timeline-step {
+        background: var(--surface-card);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .ck-step-num {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: var(--action-amber);
+        color: var(--on-primary);
+        font-size: 1.25rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ck-review-card {
+        background: var(--surface-card);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .ck-review-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: var(--surface-peach-subtle);
+        color: var(--action-brown);
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* =========================================
+   بخش سوالات متداول (FAQ)
+========================================= */
+      .ck-faq-item {
+        background: var(--surface-card);
+        border-radius: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+      }
+      .ck-faq-btn {
+        width: 100%;
+        padding: 1.25rem;
+        background: none;
+        border: none;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+      .ck-faq-btn:hover {
+        color: var(--action-brown);
+      }
+      .ck-faq-icon {
+        transition: transform 0.3s;
+        color: var(--action-amber);
+      }
+      .ck-faq-content {
+        padding: 0 1.25rem 1.25rem;
+        color: var(--on-surface-variant);
+        font-size: 1rem;
+        line-height: 1.6;
+        display: none;
+      }
+
+      /* =========================================
+   بخش فرم سفارش (CTA)
+========================================= */
+      .ck-cta-wrapper {
+        max-width: 64rem;
+        margin: 0 auto;
+        background-color: var(--surface-peach-hero);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      @media (min-width: 1024px) {
+        .ck-cta-wrapper {
+          padding: 3.5rem;
+        }
+      }
+      .ck-cta-glow {
+        position: absolute;
+        top: -3rem;
+        left: -3rem;
+        width: 16rem;
+        height: 16rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        filter: blur(24px);
+        pointer-events: none;
+      }
+      .ck-form-box {
+        background: var(--surface-card);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .ck-input {
+        width: 100%;
+        padding: 0.625rem 0.875rem;
+        border-radius: 0.75rem;
+        background: var(--surface-container-low);
+        border: 2px solid transparent;
+        transition: var(--transition);
+        font-size: 0.875rem;
+        color: var(--on-surface);
+        outline: none;
+      }
+      .ck-input:focus {
+        border-color: var(--action-brown);
+      }
+
+      /* =========================================
+   فوتر
+========================================= */
+      .ck-footer {
+        background: var(--surface-cream);
+        padding-top: 3.5rem;
+        padding-bottom: 2rem;
+        margin-top: 3.5rem;
+        box-shadow: 0 -4px 24px rgba(61, 48, 40, 0.04);
+      }
+      .ck-social-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        background: var(--surface-peach-subtle);
+        color: var(--action-brown);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      .ck-social-btn:hover {
+        background: var(--secondary-container);
+        color: #fff;
+      }
+      .ck-footer-link {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        transition: var(--transition);
+      }
+      .ck-footer-link:hover {
+        color: var(--action-brown);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ck-cookchi-academy">
+     
+
+      <main class="ck-main">
+
+        <!-- Section 2: Hero Section -->
+        <section class="ck-hero">
+          <div class="ck-hero-glow-1"></div>
+          <div class="ck-hero-glow-2"></div>
+          <div
+            class="ck-container ck-grid ck-grid-1 ck-lg-grid-12 ck-items-center"
+            style="position: relative; z-index: 10"
+          >
+            <div class="ck-col-span-7 ck-flex-col ck-gap-6">
+              <div
+                class="ck-flex ck-items-center ck-gap-2 ck-label-md ck-text-brown"
+                style="
+                  background: var(--surface);
+                  padding: 0.375rem 0.875rem;
+                  border-radius: 9999px;
+                  align-self: flex-start;
+                  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                "
+              >
+                <span
+                  class="material-symbols-outlined"
+                  style="color: var(--action-amber); font-size: 20px"
+                  >workspace_premium</span
+                >
+                <span>کارگاه کوکچی در شهر کرمان</span>
+              </div>
+              <h1 class="ck-h1">
+                سفارش کیک و کوکی
+                <span
+                  style="
+                    color: var(--action-brown);
+                    text-underline-offset: 8px;
+                  "
+                  > در کرمان</span
+                >
+              </h1>
+              <p
+                class="ck-body-lg ck-text-muted"
+                style="text-align: justify; max-width: 42rem"
+              >
+                برای لحظه‌های شیرین زندگی، کیک‌ها و کوکی‌هایی خاص و دست‌ساز
+                سفارش بده. با طراحی زیبا و توجه به جزئیات، مناسبت‌های خودت را
+                به‌یادماندنی‌تر کن. ما هنر و عطر تازگی را در کارگاه اختصاصی
+                کرمان به جشن‌های شما هدیه می‌دهیم.
+              </p>
+              <div class="ck-flex ck-gap-3" style="flex-wrap: wrap">
+                <a class="ck-btn ck-btn-primary ck-label-lg" href="#order-form">
+                  <span>ثبت سفارش کیک و کوکی</span>
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 20px"
+                    >arrow_back</span
+                  >
+                </a>
+                <a class="ck-btn ck-btn-secondary ck-label-lg" href="#gallery">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 20px"
+                    >photo_library</span
+                  >
+                  <span>مشاهده نمونه کارها</span>
+                </a>
+              </div>
+              <div
+                class="ck-grid ck-sm-grid-3 ck-gap-3"
+                style="margin-top: 1.5rem"
+              >
+                <div class="ck-trust-card">
+                  <span
+                    class="material-symbols-outlined"
+                    style="color: var(--action-amber); font-size: 24px"
+                    >cookie</span
+                  >
+                  <div class="ck-flex-col">
+                    <span class="ck-label-md">کاملاً دست‌ساز</span
+                    ><span class="ck-label-sm ck-text-muted"
+                      >کره طبیعی و تازه</span
+                    >
+                  </div>
+                </div>
+                <div class="ck-trust-card">
+                  <span
+                    class="material-symbols-outlined"
+                    style="color: var(--action-amber); font-size: 24px"
+                    >palette</span
+                  >
+                  <div class="ck-flex-col">
+                    <span class="ck-label-md">طرح‌های اختصاصی</span
+                    ><span class="ck-label-sm ck-text-muted"
+                      >ژورنالی و سفارشی</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="ck-trust-card"
+                  style="
+                    grid-column: span 2 / span 2;
+                    @media (min-width: 640px) {
+                      grid-column: span 1 / span 1;
+                    }
+                  "
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="color: var(--action-amber); font-size: 24px"
+                    >celebration</span
+                  >
+                  <div class="ck-flex-col">
+                    <span class="ck-label-md">مناسبت و تشریفات</span
+                    ><span class="ck-label-sm ck-text-muted"
+                      >تولد، عقد و نامزدی</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ck-col-span-5" style="position: relative">
+              <div class="ck-hero-img-wrapper">
+                <img
+                  class="ck-hero-img"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWoI1IlFXIteqnczSLeTSxEcWHmusxz_YcDDdbHGBWTk_ZK99ue6poLbJZu4OpSiyPHCATEnGEuwoIehBQtD9uV_PWAn2OKi3BegGYz5iIQ8O2w4dG8FcofvK-4G7A2oP8wQuaYQFHToD7r3SbqptbhSt7XHjFe1WYrVYOo9lCee18jTsYDjE_umfGsHC-RW12zn-DpiKEOKgBfHJtl5rlcCMSw2L4zfnRs8SzQA"
+                  alt="Bespoke artisan cake"
+                />
+              </div>
+              <div class="ck-floating-card">
+                <div
+                  class="ck-icon-box"
+                  style="width: 3rem; height: 3rem; border-radius: 0.75rem"
+                >
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 28px"
+                    >cake</span
+                  >
+                </div>
+                <div>
+                  <p class="ck-label-md" style="color: var(--text-primary)">
+                    تازه‌پخت در روز جشن
+                  </p>
+                  <p class="ck-body-sm ck-text-muted">
+                    ارسال ایمن و ایزوله در سراسر کرمان
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Categories -->
+        <section class="ck-section">
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center; max-width: 42rem; margin: 0 auto"
+            >
+              <span class="ck-label-lg ck-text-brown"
+                >دسته‌بندی سفارشات سفارشی</span
+              >
+              <h2 class="ck-h2">طعم و زیبایی در کنار هم</h2>
+              <p class="ck-body-md ck-text-muted">
+                محصولات هنری ما با بهترین ترکیبات اولیه و سبک طراحی مدرن خلق
+                می‌شوند تا نقطه‌ی عطف مجالس شما در کرمان باشند.
+              </p>
+            </div>
+            <div class="ck-grid ck-grid-1 ck-sm-grid-2 ck-lg-grid-4">
+              <!-- Card 1 -->
+              <div class="ck-card">
+                <div class="ck-card-img-box">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIjkpu2OBeXgQNO4agQcSH_QMCpThobmxg8b5kVBb7tMMo9J4hgJOFZR6rrZ2ZuEpeP7SurVXK2Nc9dZUfqUsYHzSZd1ZHpb2toNyS_RW2R_9qE7EAsy2L_PTQEwrci_Mn8lXm21E3h6BUi01U8jVP3zcYF37sta9YFxn3lieUkshIc6z2fJC1Kwq87gYWTAX5NggSsmnCgQw5XWWsIlJVcS9-9-0VOVqRWVUi4g"
+                    alt="کیک تولد"
+                  />
+                </div>
+                <div class="ck-card-body">
+                  <div>
+                    <h3 class="ck-h3" style="margin-bottom: 0.5rem">
+                      کیک تولد
+                    </h3>
+                    <p class="ck-body-sm ck-text-muted">
+                      طراحی‌های ژورنالی و شیک برای جشن‌های ماندگار، متناسب با تم
+                      اختصاصی و سلیقه فردی شما.
+                    </p>
+                  </div>
+                  <a
+                    class="ck-flex ck-items-center ck-justify-between ck-label-md ck-text-brown"
+                    href="#order-form"
+                  >
+                    <span>مشاهده و سفارش کیک تولد</span>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >chevron_left</span
+                    >
+                  </a>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="ck-card">
+                <div class="ck-card-img-box">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOdVA7I8_X6JsyddB5fAN_kb42XrdYPIpXf-ncr6bK_jAlMGAbjKAo2WxxVc9MuM3H5F5tPcbO5kak5VV7te73xYZwp0fN3LELcq3-kwGjvV3l0aCuNI6FSCcJitDMUGBbfq1zfei9Su_Wu0U59qfZmTwhRnQi4DSbaVgUx0cr85HKQ7Okr1gZQGsP4bi916JRMNYgA2fCXOe-ge50KMGnJLJEGr-wn26B3ziTQQ"
+                    alt="کیک مناسبتی"
+                  />
+                </div>
+                <div class="ck-card-body">
+                  <div>
+                    <h3 class="ck-h3" style="margin-bottom: 0.5rem">
+                      کیک‌های مناسبتی
+                    </h3>
+                    <p class="ck-body-sm ck-text-muted">
+                      شکوه جشن‌های عروسی، نامزدی، سالگرد و مراسم تشریفاتی با
+                      طعم‌های غنی دست‌ساز.
+                    </p>
+                  </div>
+                  <a
+                    class="ck-flex ck-items-center ck-justify-between ck-label-md ck-text-brown"
+                    href="#order-form"
+                  >
+                    <span>سفارش کیک عروسی و عقد</span>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >chevron_left</span
+                    >
+                  </a>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="ck-card">
+                <div class="ck-card-img-box">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq1MraYs0jIYGuHVn3mGq64WzUyZrTrSOyaIWyEPSLKwXC_N2vw4beUoLyVFthngrs8O0XEEHT3LYA74yNQexMILGFm1YJBhM0wNZP-HhMDVggfCgjgZHky4pykfkh3Eg3UfGKYaQ3nPsC1fiEn599TlP9CeWTKcrQZXjADZRQt48MypHlrV3WM1CXPpfhzUCZSgmo7bRDpWVZizM9B3scqqwGssFsPNVGCCpkUQ"
+                    alt="کوکی دست‌ساز"
+                  />
+                </div>
+                <div class="ck-card-body">
+                  <div>
+                    <h3 class="ck-h3" style="margin-bottom: 0.5rem">
+                      کوکی‌های دست‌ساز
+                    </h3>
+                    <p class="ck-body-sm ck-text-muted">
+                      شیرینی‌های تازه و کره‌ای با کیفیت خانگی و عطر وانیل
+                      ماداگاسکار، مناسب دورهمی‌های عصرانه.
+                    </p>
+                  </div>
+                  <a
+                    class="ck-flex ck-items-center ck-justify-between ck-label-md ck-text-brown"
+                    href="#order-form"
+                  >
+                    <span>سفارش پکیج کوکی کره‌ای</span>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >chevron_left</span
+                    >
+                  </a>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="ck-card">
+                <div class="ck-card-img-box">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuChmN-Eko_CSwMzuQ7RArqRuyBCFI6pS5shnispZDBTnUD7SoNSn8zO5RMgUP_ehrfgEikvcp0xFebfMDA_r4XIoPz4lKrO90LUZ5uIyLic_RY5FoSNUmcTWnUOe6pG8i29xM0hqTYGEpaVbv0IdDMiHtf7s7HSk_peQJ9q8Q_v6o8NuQbuGtFRDxe1C-gJPNIae_m3EDbiqP4AskpxzsQi4mWKKyHFf-uALPTsyQ"
+                    alt="کوکی آیسینگ"
+                  />
+                </div>
+                <div class="ck-card-body">
+                  <div>
+                    <h3 class="ck-h3" style="margin-bottom: 0.5rem">
+                      کوکی‌های آیسینگ
+                    </h3>
+                    <p class="ck-body-sm ck-text-muted">
+                      طرح‌های هنری ظریف و اختصاصی برای گیفت‌های تولد، بله‌برون،
+                      سیسمونی و رویدادهای شرکتی.
+                    </p>
+                  </div>
+                  <a
+                    class="ck-flex ck-items-center ck-justify-between ck-label-md ck-text-brown"
+                    href="#order-form"
+                  >
+                    <span>مشاهده طرح‌های آیسینگ</span>
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 18px"
+                      >chevron_left</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Gallery -->
+        <section class="ck-section ck-bg-surface-cream" id="gallery">
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex ck-justify-between ck-items-end"
+              style="flex-wrap: wrap; gap: 1rem"
+            >
+              <div>
+                <span class="ck-label-lg ck-text-brown"
+                  >گالری اختصاصی کارگاه کرمان</span
+                >
+                <h2 class="ck-h2" style="margin-top: 0.25rem">
+                  نمونه‌ای از کیک های کوکچی
+                </h2>
+              </div>
+              <p class="ck-body-md ck-text-muted" style="max-width: 28rem">
+                تمامی تصاویر واقعی و دست‌رنج هنرجویان و تیم تولید کارگاه کوکچی
+                در کرمان می‌باشند.
+              </p>
+            </div>
+            <div class="ck-grid ck-grid-1 ck-sm-grid-2 ck-lg-grid-3">
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuQDKY9nOfhcIwCS1lXsWpIZPV33F6pyLMC7s3cFF5nlSHtQut0SE-M305q4yaBlsgqvrCRGXXDeq3rfEhMgY19JMkjezWwFsuWkhBqOssUDUGnJ7HorzsmkbjX9FQ6rkzq7zAgQb3-1hAh8lIuEqlXdyn4PkmiVqMJOaUza0mzh7YLr_NDw-abYZH1aOj9ypv0OOFvkRoqz73roT0rz4ptk8GQ8-z8jJraE8MHw"
+                  alt="Gallery Image 1"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">کیک ژورنالی نامزدی</span
+                  ><span class="ck-body-sm"
+                    >اجرا شده با خامه ارگانیک و تاپینگ دست‌ساز</span
+                  >
+                </div>
+              </div>
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSrKRdtFoA1yvjVxQXa0jKRqpVm4Nz1jaW5yAWosXXTD4gf2fBBOEDCFs_BQ_B7mGtGF9VtceXXretPslywFiDfI4iuQyy2Rz5Khbag-hMW_gUkC9ky2KCkeiH9zWkuUh2facJxEyDW8CxNuv51ll6ycAW_0lRr1s4wM8SZTMy3DKlE3DCAYbxinFYhxRLimkILuxiBQ8z20zmCS8h0EHJSGTzPf3fJQxOmruQcA"
+                  alt="Gallery Image 2"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">پک گیفت کوکی تولد و نوزاد</span
+                  ><span class="ck-body-sm">طراحی اختصاصی با آیسینگ رویال</span>
+                </div>
+              </div>
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJJkpD1s0TsflV-F_ZnkhiqQ4fcC6yWLW2zAVDv6dGKtEyB3fpIt97TMgwyhFT0b3ZOeYtpr3_OPZ1sZ0EIxPsPyUOoOWz3vNQ7Ceq2KoY22XaZHaiHE-LVXmamy6yCPHmH4zLJK04FGxmBXX-2SA_zu6K1I_zu85DcBXfI3SOTMLjtd4V3NndKOwlgHX6KF3OreFeO-L4rkLFCYwtpV70NORRF9Ny2-Cnp9TOxA"
+                  alt="Gallery Image 3"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">کیک شکلاتی آرتیزان</span
+                  ><span class="ck-body-sm"
+                    >ترکیب فیلینگ نوتلا و کارامل نمکی خانگی</span
+                  >
+                </div>
+              </div>
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDEdwSiBDAJQIS05ZGZfzV6UspRJeutovgg38hTSKOIr8g3RGhXyyUeYMa6EodJKKw8ZJJPfjY8BGdCVxab53tvBMHhn8dsVMJd_YYd-ExUTRFKixIdSXjInI7BS4iZc3510z9qjeJHo8COXaJBDC168GPy84n0nbFISdJ6bfw0asm0UqbZwuJWkIhqa1T01IRKmyqkuaj3kyjRnLyzLEYLUfv4DI3TQa9WOeNng"
+                  alt="Gallery Image 4"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">باکس هدیه تشریفات</span
+                  ><span class="ck-body-sm"
+                    >مناسب سورپرایز و بسته‌های سازمانی</span
+                  >
+                </div>
+              </div>
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVu-JCsvESICITRXMNbANoMXR2LarBK8gT3_NzuRmdqJ780Zqg7B4icqHAVst6U0icm3u5pwCaelId6f4LkwMKmYbunaaWComf35uuaz3ZFoaIjukaorrmfF8z3kIrgzG7F15e3XntGySZ7C3mjXL1aoIFOeXIL2zQSVReZRgwIhz_4zcn3T0WZnUgyta_W_kHMgTPazkbI9smQWIWsLMeGVQXNZFVPTV9dHe4AQ"
+                  alt="Gallery Image 5"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">کیک وینتیج لمبت</span
+                  ><span class="ck-body-sm"
+                    >ترند روز عکاسی و جشن‌های جوان‌پسند</span
+                  >
+                </div>
+              </div>
+              <div class="ck-gallery-item">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPsFSlOqUAZh5-qHgma7dXHpNJlqJAPGnaVKcmfDJNQW1_UEINRN7BWxffTH4Ffm3RhKSHADb-3PVfEaoOiUUh92gAlFjUXPeJCnzyuOIiJnK7xRmMVr9X07FZ3vp4ehbtZTFa2kSgra5luce2OMg9MKloZ3srllmC9IhR66VVD8d28pjV9JperuUjfcczSCOVrR5yTaDgzcJnC3jfX5-Qh8Pnco8bLFc7YPe4bw"
+                  alt="Gallery Image 6"
+                />
+                <div class="ck-gallery-overlay">
+                  <span class="ck-h3">میز پذیرایی کامل رویدادها</span
+                  ><span class="ck-body-sm">ست کامل کیک و کوکی‌های هماهنگ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Features -->
+        <section class="ck-section">
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center; max-width: 36rem; margin: 0 auto"
+            >
+              <span class="ck-label-lg ck-text-brown">ارزش‌های تمایز ما</span>
+              <h2 class="ck-h2">چرا سفارش از کوکچی؟</h2>
+              <p class="ck-body-md ck-text-muted">
+                در کوکچی هر سفارش یک اثر هنری منحصر‌به‌فرد است، نه یک تولید
+                صنعتی انبوه.
+              </p>
+            </div>
+            <div class="ck-grid ck-grid-1 ck-md-grid-2 ck-lg-grid-4">
+              <div class="ck-feature-box">
+                <div class="ck-icon-box">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 28px"
+                    >brush</span
+                  >
+                </div>
+                <h3 class="ck-h3">توجه به جزئیات در طراحی</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  خطوط پیپینگ دقیق، رنگ‌آمیزی هماهنگ با طیف دلخواه شما و رعایت
+                  تم‌های ژورنالی بدون کوچک‌ترین ناهماهنگی.
+                </p>
+              </div>
+              <div class="ck-feature-box">
+                <div class="ck-icon-box">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 28px"
+                    >eco</span
+                  >
+                </div>
+                <h3 class="ck-h3">متریال باکیفیت و دست‌ساز</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  استفاده مطلق از کره‌های طبیعی، خامه سبک حیوانی، شکلات‌های
+                  بلژیکی و عدم استفاده از مواد نگهدارنده مضر.
+                </p>
+              </div>
+              <div class="ck-feature-box">
+                <div class="ck-icon-box">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 28px"
+                    >auto_awesome</span
+                  >
+                </div>
+                <h3 class="ck-h3">تنوع نامحدود در طرح و مدل</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  از الگوهای مدرن مینیمال تا کیک‌های مجلل چندطبقه؛ هر تصویری که
+                  در ذهن دارید را با دقت اجرا می‌کنیم.
+                </p>
+              </div>
+              <div class="ck-feature-box">
+                <div class="ck-icon-box">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 28px"
+                    >support_agent</span
+                  >
+                </div>
+                <h3 class="ck-h3">همراهی در انتخاب محصول</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  مشاوره اختصاصی برای محاسبه وزن دقیق متناسب با تعداد مهمانان و
+                  معرفی ترکیب‌های طعمی ایده‌آل مراسم شما.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Occasions -->
+        <section
+          class="ck-section"
+          style="background-color: rgba(255, 240, 227, 0.5)"
+        >
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center; max-width: 42rem; margin: 0 auto"
+            >
+              <span class="ck-label-lg ck-text-brown">تقویم خاطرات شما</span>
+              <h2 class="ck-h2">برای هر مناسبت، یک انتخاب شیرین</h2>
+              <p class="ck-body-md ck-text-muted">
+                طراحی اختصاصی شیرینی متناسب با تم و حال‌وهوای رویدادهای شما در
+                شهر کرمان
+              </p>
+            </div>
+            <div
+              class="ck-grid ck-grid-1 ck-sm-grid-2 ck-md-grid-3 ck-lg-grid-5"
+            >
+              <div
+                class="ck-feature-box ck-items-center"
+                style="text-align: center"
+              >
+                <div class="ck-icon-circle">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 30px"
+                    >cake</span
+                  >
+                </div>
+                <h4 class="ck-h4">تولد و سالروز</h4>
+                <p class="ck-body-sm ck-text-muted">
+                  کیک‌های متناسب با سن، علایق فردی و تم جشن
+                </p>
+              </div>
+              <div
+                class="ck-feature-box ck-items-center"
+                style="text-align: center"
+              >
+                <div class="ck-icon-circle">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 30px"
+                    >favorite</span
+                  >
+                </div>
+                <h4 class="ck-h4">سالگرد ازدواج</h4>
+                <p class="ck-body-sm ck-text-muted">
+                  طرح‌های عاشقانه، مینیمال و گل‌آرایی طبیعی
+                </p>
+              </div>
+              <div
+                class="ck-feature-box ck-items-center"
+                style="text-align: center"
+              >
+                <div class="ck-icon-circle">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 30px"
+                    >celebration</span
+                  >
+                </div>
+                <h4 class="ck-h4">جشن و مهمانی</h4>
+                <p class="ck-body-sm ck-text-muted">
+                  سینی‌های فینگرکوکی و دسر برای پذیرایی شیک
+                </p>
+              </div>
+              <div
+                class="ck-feature-box ck-items-center"
+                style="text-align: center"
+              >
+                <div class="ck-icon-circle">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 30px"
+                    >featured_seasonal_and_gifts</span
+                  >
+                </div>
+                <h4 class="ck-h4">هدیه‌های خاص</h4>
+                <p class="ck-body-sm ck-text-muted">
+                  باکس‌های سورپرایز و گیفت‌های نام‌نویسی شده
+                </p>
+              </div>
+              <div
+                class="ck-feature-box ck-items-center"
+                style="text-align: center"
+              >
+                <div class="ck-icon-circle">
+                  <span
+                    class="material-symbols-outlined"
+                    style="font-size: 30px"
+                    >nights_stay</span
+                  >
+                </div>
+                <h4 class="ck-h4">مناسبت‌های فصلی</h4>
+                <p class="ck-body-sm ck-text-muted">
+                  شب یلدا، نوروز باستانی، ولنتاین و اعیاد
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Timeline -->
+        <section class="ck-section">
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center; max-width: 36rem; margin: 0 auto"
+            >
+              <span class="ck-label-lg ck-text-brown">سفارش آسان و مطمئن</span>
+              <h2 class="ck-h2">مراحل ثبت سفارش در کرمان</h2>
+              <p class="ck-body-md ck-text-muted">
+                تنها در ۴ گام ساده، کیک یا کوکی موردنظرتان را در تاریخ دلخواه
+                تحویل بگیرید.
+              </p>
+            </div>
+            <div class="ck-grid ck-grid-1 ck-md-grid-2 ck-lg-grid-4">
+              <div class="ck-timeline-step">
+                <div class="ck-step-num">۱</div>
+                <h3 class="ck-h3">انتخاب محصول و مدل</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  از گالری نمونه‌های کوکچی الهام بگیرید یا عکس طرح مدنظرتان را
+                  از اینترنت آماده کنید.
+                </p>
+              </div>
+              <div class="ck-timeline-step">
+                <div class="ck-step-num">۲</div>
+                <h3 class="ck-h3">ارسال درخواست سفارش</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  فرم انتهای صفحه را تکمیل کرده یا مشخصات را از طریق واتساپ/تماس
+                  برای پشتیبانی ارسال کنید.
+                </p>
+              </div>
+              <div class="ck-timeline-step">
+                <div class="ck-step-num">۳</div>
+                <h3 class="ck-h3">هماهنگی جزئیات و زمان</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  وزن نهایی، فیلینگ طعمی، متن روی کیک و ساعت دقیق تحویل در کرمان
+                  را با قناد چک می‌کنید.
+                </p>
+              </div>
+              <div class="ck-timeline-step">
+                <div
+                  class="ck-step-num"
+                  style="background-color: var(--action-brown)"
+                >
+                  ۴
+                </div>
+                <h3 class="ck-h3">نهایی‌کردن و تحویل</h3>
+                <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                  پس از ثبت بیعانه، اثر هنری شما تازه و با بسته‌بندی ایمن در محل
+                  تحویل داده می‌شود.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Testimonials -->
+        <section class="ck-section ck-bg-surface-cream">
+          <div class="ck-container ck-flex-col ck-gap-6">
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center; max-width: 36rem; margin: 0 auto"
+            >
+              <span class="ck-label-lg ck-text-brown">رضایت همشهریان عزیز</span>
+              <h2 class="ck-h2">تجربه شیرین مشتریان کوکچی</h2>
+              <p class="ck-body-md ck-text-muted">
+                نظرات مشتریانی که مناسبت‌های خاص‌شان را به آکادمی کوکچی سپردند.
+              </p>
+            </div>
+            <div class="ck-grid ck-grid-1 ck-md-grid-3">
+              <div class="ck-review-card">
+                <div class="ck-flex-col ck-gap-3">
+                  <div class="ck-flex ck-gap-2 ck-text-brown">
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    >
+                  </div>
+                  <p
+                    class="ck-body-md ck-text-muted"
+                    style="text-align: justify"
+                  >
+                    «برای تولد دخترم در کرمان کیک با طرح پری دریایی سفارش دادم.
+                    فراتر از انتظارم بود! نه تنها ظاهرش مو به مو شبیه عکس بود،
+                    بلکه مزه خامه و گردو و موز داخلش فوق‌العاده سبک و کم‌شیرین
+                    بود. ممنون از کوکچی.»
+                  </p>
+                </div>
+                <div
+                  class="ck-flex ck-items-center ck-gap-3"
+                  style="
+                    border-top: 1px solid var(--surface-container);
+                    padding-top: 0.75rem;
+                  "
+                >
+                  <div class="ck-review-avatar"><img src="http://cookchiacademy.ir/wp-content/uploads/2026/10/4.png" alt="comment"></div>
+                  <div>
+                    <p class="ck-label-md" style="color: var(--text-primary)">
+                      مریم نادری
+                    </p>
+                    <p class="ck-label-sm ck-text-muted">
+                      سفارش کیک تولد
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="ck-review-card">
+                <div class="ck-flex-col ck-gap-3">
+                  <div class="ck-flex ck-gap-2 ck-text-brown">
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    >
+                  </div>
+                  <p
+                    class="ck-body-md ck-text-muted"
+                    style="text-align: justify"
+                  >
+                    «پک کوکی‌های آیسینگ برای مراسم عقدمون گرفتیم؛ مهمون‌ها
+                    واقعاً شگفت‌زده شده بودند. ظرافت خطوط رویال آیسینگ مثل کار
+                    دستی جواهرسازها بود. تحویل سر ساعت در تالار انجام شد.»
+                  </p>
+                </div>
+                <div
+                  class="ck-flex ck-items-center ck-gap-3"
+                  style="
+                    border-top: 1px solid var(--surface-container);
+                    padding-top: 0.75rem;
+                  "
+                >
+                  <div class="ck-review-avatar"><img src="http://cookchiacademy.ir/wp-content/uploads/2026/10/2.png" alt="comment"></div>
+                  <div>
+                    <p class="ck-label-md" style="color: var(--text-primary)">
+                      علی شجاعی
+                    </p>
+                    <p class="ck-label-sm ck-text-muted">
+                      گیفت آیسینگ مراسم نامزدی
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="ck-review-card">
+                <div class="ck-flex-col ck-gap-3">
+                  <div class="ck-flex ck-gap-2 ck-text-brown">
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    ><span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >star</span
+                    >
+                  </div>
+                  <p
+                    class="ck-body-md ck-text-muted"
+                    style="text-align: justify"
+                  >
+                    «همیشه پیدا کردن قنادی که از کره درجه یک و شکلات مرغوب
+                    استفاده کنه در کرمان چالش بود برام. کوکچی استانداردهای قنادی
+                    تهران رو به کرمان آورده. هر بار برای سالگرد یا دورهمی ازشون
+                    سفارش می‌دم عالی بوده.»
+                  </p>
+                </div>
+                <div
+                  class="ck-flex ck-items-center ck-gap-3"
+                  style="
+                    border-top: 1px solid var(--surface-container);
+                    padding-top: 0.75rem;
+                  "
+                >
+                  <div class="ck-review-avatar"><img src="http://cookchiacademy.ir/wp-content/uploads/2026/10/4.png" alt="comment"></div>
+                  <div>
+                    <p class="ck-label-md" style="color: var(--text-primary)">
+                      سحر کامرانی
+                    </p>
+                    <p class="ck-label-sm ck-text-muted">
+                      مشتری دائم کیک و کوکی
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: FAQ -->
+        <section class="ck-section">
+          <div
+            class="ck-container ck-flex-col ck-gap-6"
+            style="max-width: 56rem"
+          >
+            <div
+              class="ck-flex-col ck-gap-2 ck-items-center"
+              style="text-align: center"
+            >
+              <span class="ck-label-lg ck-text-brown"
+                >پاسخ به ابهامات متداول</span
+              >
+              <h2 class="ck-h2">سوالات متداول سفارش در کرمان</h2>
+            </div>
+            <div class="ck-flex-col ck-gap-3" id="faq-accordion">
+              <div class="ck-faq-item">
+                <button class="ck-faq-btn" type="button">
+                  <span
+                    >چند روز قبل از جشن باید در کرمان سفارش خود را ثبت
+                    کنم؟</span
+                  >
+                  <span class="material-symbols-outlined ck-faq-icon"
+                    >expand_more</span
+                  >
+                </button>
+                <div class="ck-faq-content">
+                  برای کیک‌های خامه‌ای تولد، حداقل ۳ الی ۴ روز کاری و برای
+                  کیک‌های فوندانت، چندطبقه عروسی یا سفارش‌های عمده کوکی آیسینگ،
+                  پیشنهاد می‌کنیم از ۷ تا ۱۰ روز قبل سفارش خود را نهایی کنید تا
+                  طرح و متریال به بهترین شکل ممکن رزرو گردد.
+                </div>
+              </div>
+              <div class="ck-faq-item">
+                <button class="ck-faq-btn" type="button">
+                  <span
+                    >آیا امکان اجرای طرح کاملاً اختصاصی یا از روی عکس وجود
+                    دارد؟</span
+                  >
+                  <span class="material-symbols-outlined ck-faq-icon"
+                    >expand_more</span
+                  >
+                </button>
+                <div class="ck-faq-content">
+                  بله، تخصص اصلی آکادمی کوکچی اجرای طرح‌های اختصاصی و ژورنالی
+                  (پینترست و اینستاگرام) است. شما می‌توانید تصویر مدل دلخواه را
+                  برای ما ارسال کنید تا امکان‌پذیری، جزئیات و تخمین وزن دقیق
+                  بررسی شود.
+                </div>
+              </div>
+              <div class="ck-faq-item">
+                <button class="ck-faq-btn" type="button">
+                  <span>نحوه ارسال و تحویل سفارش در شهر کرمان چگونه است؟</span>
+                  <span class="material-symbols-outlined ck-faq-icon"
+                    >expand_more</span
+                  >
+                </button>
+                <div class="ck-faq-content">
+                  کیک‌ها و کوکی‌ها در جعبه‌های محکم و بهداشتی قرار گرفته و از
+                  طریق ناوگان اختصاصی و مجهز به سیستم تهویه خنک در ساعت
+                  تعیین‌شده به آدرس شما در شهر کرمان ارسال می‌شوند. همچنین امکان
+                  تحویل حضوری از استودیو نیز فراهم است.
+                </div>
+              </div>
+              <div class="ck-faq-item">
+                <button class="ck-faq-btn" type="button">
+                  <span>حداقل وزن قابل سفارش برای کیک تولد چقدر است؟</span>
+                  <span class="material-symbols-outlined ck-faq-icon"
+                    >expand_more</span
+                  >
+                </button>
+                <div class="ck-faq-content">
+                  حداقل وزن کیک‌های خامه‌ای مدرن ۱.۵ کیلوگرم (مناسب برای حدود ۶
+                  تا ۸ نفر) است. برای مهمانی‌های کوچکتر نیز مینی‌کیک‌های اختصاصی
+                  (بنتو کیک) با هماهنگی قابل اجرا هستند.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 10: CTA / Form -->
+        <section class="ck-section" id="order-form">
+          <div class="ck-container" style="padding: 0 1rem">
+            <div class="ck-cta-wrapper">
+              <div class="ck-cta-glow"></div>
+              <div
+                class="ck-grid ck-grid-1 ck-lg-grid-12 ck-items-center"
+                style="position: relative; z-index: 10"
+              >
+                <div class="ck-col-span-7 ck-flex-col ck-gap-4">
+                  <span
+                    class="ck-label-sm"
+                    style="
+                      background: var(--action-brown);
+                      color: var(--on-primary);
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 9999px;
+                      align-self: flex-start;
+                    "
+                    >ظرفیت محدود هفتگی در کرمان</span
+                  >
+                  <h2 class="ck-h1">
+                    برای مناسبت بعدی‌ات یک انتخاب شیرین داشته باش!
+                  </h2>
+                  <p
+                    class="ck-body-md"
+                    style="color: var(--on-surface-variant)"
+                  >
+                    اجازه دهید طعم خوش لحظه‌هایتان را با طراحی چشم‌نواز و مواد
+                    اولیه خالص ماندگار کنیم. همین حالا فرم را پر کنید تا
+                    کارشناسان ما جهت هماهنگی و مشاوره سریع با شما تماس بگیرند.
+                  </p>
+                  <div
+                    class="ck-flex ck-items-center ck-gap-2 ck-label-md ck-text-brown"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size: 20px"
+                      >phone_in_talk</span
+                    >
+                    مشاوره تلفنی فوری: ۰۹۱۲۰۰۰۰۰۰۰
+                  </div>
+                </div>
+                <div class="ck-col-span-5 ck-form-box">
+                  <h3 class="ck-h3" style="margin-bottom: 1rem">
+                    فرم سریع ثبت سفارش کرمان
+                  </h3>
+                  <form class="ck-flex-col ck-gap-3" id="kerman-order-form">
+                    <div>
+                      <label
+                        class="ck-label-sm ck-text-muted"
+                        style="display: block; margin-bottom: 0.25rem"
+                        for="client-name"
+                        >نام و نام‌خانوادگی</label
+                      >
+                      <input
+                        class="ck-input"
+                        id="client-name"
+                        placeholder="مثال: نرگس رضایی"
+                        required
+                        type="text"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="ck-label-sm ck-text-muted"
+                        style="display: block; margin-bottom: 0.25rem"
+                        for="client-phone"
+                        >شماره تماس (جهت هماهنگی در کرمان)</label
+                      >
+                      <input
+                        class="ck-input"
+                        dir="ltr"
+                        style="text-align: right"
+                        id="client-phone"
+                        placeholder="۰۹..."
+                        required
+                        type="tel"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="ck-label-sm ck-text-muted"
+                        style="display: block; margin-bottom: 0.25rem"
+                        for="order-type"
+                        >نوع سفارش</label
+                      >
+                      <select class="ck-input" id="order-type">
+                        <option value="cake-birthday">کیک تولد دست‌ساز</option>
+                        <option value="cake-wedding">
+                          کیک مناسبتی / نامزدی / سالگرد
+                        </option>
+                        <option value="cookies-icing">
+                          کوکی‌های آیسینگ اختصاصی
+                        </option>
+                        <option value="cookies-butter">
+                          پکیج کوکی کره‌ای خانگی
+                        </option>
+                        <option value="custom">پکیج ترکیبی و تشریفات</option>
+                      </select>
+                    </div>
+                    <button
+                      class="ck-btn ck-btn-primary ck-label-lg"
+                      style="width: 100%; margin-top: 0.5rem"
+                      type="submit"
+                    >
+                      <span>ثبت سفارش در کرمان</span>
+                      <span
+                        class="material-symbols-outlined"
+                        style="font-size: 18px"
+                        >done_all</span
+                      >
+                    </button>
+                    <span
+                      class="ck-label-sm ck-text-muted"
+                      style="text-align: center; display: block"
+                      >مشاوره و استعلام قیمت کاملاً رایگان است.</span
+                    >
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="ck-footer">
+        <div class="ck-container">
+          <div
+            class="ck-grid ck-grid-1 ck-md-grid-2 ck-lg-grid-4"
+            style="margin-bottom: 3.5rem"
+          >
+            <div class="ck-flex-col ck-gap-3">
+              <span class="ck-h3 ck-text-brown">آکادمی کوکچی</span>
+              <p class="ck-body-sm ck-text-muted" style="text-align: justify">
+                آکادمی تخصصی کوکچی مرجع حرفه‌ای آموزش دکور کوکی‌های آیسینگ، پخت
+                کیک‌های مدرن و سفارش محصولات قنادی دست‌ساز و سفارشی. تلفیقی از
+                ظرافت هنری و بالاترین کیفیت مواد اولیه برای خلق طعم‌های
+                خاطره‌انگیز در کرمان و تهران.
+              </p>
+              <div
+                class="ck-flex ck-items-center ck-gap-3"
+                style="margin-top: 0.5rem"
+              >
+                <a class="ck-social-btn" href="#"
+                  ><span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >photo_camera</span
+                  ></a
+                >
+                <a class="ck-social-btn" href="#"
+                  ><span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >send</span
+                  ></a
+                >
+                <a class="ck-social-btn" href="#"
+                  ><span
+                    class="material-symbols-outlined"
+                    style="font-size: 18px"
+                    >chat</span
+                  ></a
+                >
+              </div>
+            </div>
+            <div class="ck-flex-col ck-gap-3">
+              <h3 class="ck-label-lg" style="color: var(--text-primary)">
+                دسترسی سریع
+              </h3>
+              <ul>
+                <li><a class="ck-footer-link" href="#">صفحه اصلی</a></li>
+                <li>
+                  <a class="ck-footer-link" href="#">دوره جامع کوکی آیسینگ</a>
+                </li>
+                <li>
+                  <a class="ck-footer-link" href="#">سفارش کیک و کوکی کرمان</a>
+                </li>
+                <li><a class="ck-footer-link" href="#">سفارش کوکی تهران</a></li>
+                <li>
+                  <a class="ck-footer-link" href="#">داستان آکادمی کوکچی</a>
+                </li>
+              </ul>
+            </div>
+            <div class="ck-flex-col ck-gap-3">
+              <h3 class="ck-label-lg" style="color: var(--text-primary)">
+                دوره‌ها و محصولات
+              </h3>
+              <ul>
+                <li>
+                  <a class="ck-footer-link" href="#"
+                    >ورکشاپ تخصصی رویال آیسینگ</a
+                  >
+                </li>
+                <li>
+                  <a class="ck-footer-link" href="#"
+                    >تکنیک‌های انتقال طرح و نقاشی روی کوکی</a
+                  >
+                </li>
+                <li>
+                  <a class="ck-footer-link" href="#"
+                    >پکیج‌های پذیرایی تشریفات و ایونت‌ها</a
+                  >
+                </li>
+                <li>
+                  <a class="ck-footer-link" href="#"
+                    >گیفت‌های تبلیغاتی و سازمانی کوکی</a
+                  >
+                </li>
+                <li>
+                  <a class="ck-footer-link" href="#"
+                    >دریافت گواهینامه معتبر پایان دوره</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="ck-flex-col ck-gap-3">
+              <h3 class="ck-label-lg" style="color: var(--text-primary)">
+                نشانی شعب و تماس
+              </h3>
+              <div class="ck-flex-col ck-gap-3 ck-body-sm ck-text-muted">
+                <div class="ck-flex ck-gap-2">
+                  <span
+                    class="material-symbols-outlined ck-text-brown"
+                    style="font-size: 20px"
+                    >location_on</span
+                  >
+                  <div>
+                    <p style="font-weight: 600; color: var(--text-primary)">
+                      شعبه کرمان:
+                    </p>
+                    <p>کرمان، بلوار جمهوری، استودیو قنادی کوکچی</p>
+                  </div>
+                </div>
+                <div class="ck-flex ck-gap-2">
+                  <span
+                    class="material-symbols-outlined ck-text-brown"
+                    style="font-size: 20px"
+                    >local_shipping</span
+                  >
+                  <div>
+                    <p style="font-weight: 600; color: var(--text-primary)">
+                      هماهنگی سفارش تهران:
+                    </p>
+                    <p>ارسال تخصصی و ایزوله گیفت‌های سفارشی به سراسر تهران</p>
+                  </div>
+                </div>
+                <div class="ck-flex ck-items-center ck-gap-2">
+                  <span
+                    class="material-symbols-outlined ck-text-brown"
+                    style="font-size: 20px"
+                    >call</span
+                  ><span>پشتیبانی و سفارشات: ۰۹۱۲۰۰۰۰۰۰۰</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ck-flex ck-justify-between ck-items-center"
+            style="
+              border-top: 1px solid var(--border-subtle);
+              padding-top: 1.5rem;
+              flex-wrap: wrap;
+              gap: 1rem;
+            "
+          >
+            <span class="ck-body-sm ck-text-muted"
+              >© تمامی حقوق مادی و معنوی برای آکادمی کوکچی محفوظ است.</span
+            >
+            <div class="ck-flex ck-items-center ck-gap-4">
+              <span class="ck-label-sm ck-text-muted" style="cursor: pointer"
+                >نماد اعتماد الکترونیکی</span
+              >
+              <span class="ck-label-sm ck-text-muted" style="cursor: pointer"
+                >قوانین ثبت سفارش</span
+              >
+              <span class="ck-label-sm ck-text-muted" style="cursor: pointer"
+                >حریم خصوصی</span
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- اسکریپت آکاردئون سوالات متداول و فرم با توجه به کلاس‌های جدید -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // FAQ Script
+        const triggers = document.querySelectorAll(".ck-faq-btn");
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector(".material-symbols-outlined");
+            const isOpen = content.style.display === "block";
+
+            // Close all
+            document
+              .querySelectorAll(".ck-faq-content")
+              .forEach((c) => (c.style.display = "none"));
+            document
+              .querySelectorAll(".ck-faq-btn .material-symbols-outlined")
+              .forEach((i) => (i.style.transform = "rotate(0deg)"));
+
+            // Open targeted
+            if (!isOpen) {
+              content.style.display = "block";
+              icon.style.transform = "rotate(180deg)";
+            }
+          });
+        });
+
+        // Form Submission alert
+        const form = document.getElementById("kerman-order-form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert(
+              "درخواست شما با موفقیت ثبت شد. کارشناسان ما تا دقایقی دیگر با شما تماس خواهند گرفت.",
+            );
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
